@@ -1,0 +1,40 @@
+
+.click-active.click-active {
+
+  &:active {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+.btn-click-active.btn-click-active {
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.flex-row-c-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-row-sb-c {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-column-fs-c {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.flex-column-fe-c {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}

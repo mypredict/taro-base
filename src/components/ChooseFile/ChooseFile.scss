@@ -1,0 +1,21 @@
+.choose-file-component-column {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 30px;
+  border-radius: 15px;
+  font-size: $FONT_SIZE5;
+  color: $FONT_COLOR2;
+  white-space: nowrap;
+}
+
+.choose-file-component-row {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: $FONT_SIZE5;
+  color: $FONT_COLOR2;
+  white-space: nowrap;
+}

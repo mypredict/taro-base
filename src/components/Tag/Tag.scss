@@ -1,0 +1,25 @@
+.my-tag {
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 24px;
+
+  &__pendding {
+    color: #11a01d;
+    border: 1px solid #11a01d;
+  }
+
+  &__end {
+    color: #c9610d;
+    border: 1px solid #c9610d;
+  }
+
+  &__failure {
+    color: #666;
+    border: 1px solid #666;
+  }
+
+  &__delete {
+    color: $FONT_COLOR4;
+    border: 1px solid $FONT_COLOR4;
+  }
+}

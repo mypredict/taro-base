@@ -1,0 +1,24 @@
+@keyframes turn {
+  0% { transform:rotate(0deg); }
+  25% { transform:rotate(90deg); }
+  50% { transform:rotate(180deg); }
+  75% { transform:rotate(270deg); }
+  100% { transform:rotate(360deg); }
+}
+
+.my-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: #666;
+
+  &-circle {
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    border-right-color: rgba(0, 0, 0, 0) !important;
+    animation: turn 1s linear infinite;
+  }
+}

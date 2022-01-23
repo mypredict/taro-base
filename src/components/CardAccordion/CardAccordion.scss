@@ -1,0 +1,36 @@
+.card-accordion.card-accordion {
+  margin-top: 25px;
+  padding: 20px 30px;
+  overflow: hidden;
+
+  &-checked {
+    height: auto;
+    padding-bottom: 40px;
+  }
+}
+
+.card-accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 80px;
+  color: $FONT_COLOR1;
+  font-size: $FONT_SIZE2;
+
+  .card-accordion-title-container {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+
+    .card-accordion-desc {
+      margin-top: 10px;
+      color: $FONT_COLOR3;
+      font-size: $FONT_SIZE5;
+    }
+  }
+}
+
+.card-accordion-packup {
+  height: 0;
+  overflow: hidden;
+}

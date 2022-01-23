@@ -1,0 +1,133 @@
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fade-out {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes slide-in-top {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes slide-out-top {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+
+@keyframes slide-in-right {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slide-out-right {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes slide-in-bottom {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes slide-out-bottom {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes slide-in-left {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slide-out-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+.my-drawer-mask {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+
+  &__fade-in {
+    animation-name: fade-in;
+    animation-timing-function: ease-out;
+  }
+
+  &__fade-out {
+    animation-name: fade-out;
+    animation-timing-function: ease-in;
+  }
+
+  .my-drawer-children {
+    box-sizing: border-box;
+    position: absolute;
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+
+    &__slide-in {
+      &-top {
+        top: 0;
+        animation-name: slide-in-top;
+        animation-timing-function: ease-out;
+      }
+
+      &-right {
+        height: 100%;
+        right: 0;
+        animation-name: slide-in-right;
+        animation-timing-function: ease-out;
+      }
+
+      &-bottom {
+        bottom: 0;
+        animation-name: slide-in-bottom;
+        animation-timing-function: ease-out;
+      }
+
+      &-left {
+        height: 100%;
+        left: 0;
+        animation-name: slide-in-left;
+        animation-timing-function: ease-out;
+      }
+    }
+
+    &__slide-out {
+      &-top {
+        top: 0;
+        animation-name: slide-out-top;
+        animation-timing-function: ease-in;
+      }
+
+      &-right {
+        height: 100%;
+        right: 0;
+        animation-name: slide-out-right;
+        animation-timing-function: ease-in;
+      }
+
+      &-bottom {
+        bottom: 0;
+        animation-name: slide-out-bottom;
+        animation-timing-function: ease-in;
+      }
+
+      &-left {
+        height: 100%;
+        left: 0;
+        animation-name: slide-out-left;
+        animation-timing-function: ease-in;
+      }
+    }
+  }
+}

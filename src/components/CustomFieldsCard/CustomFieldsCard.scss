@@ -1,0 +1,37 @@
+.fields-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.fields-list-item {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  margin-top: 20px;
+  color: $FONT_COLOR2;
+
+  .fields-input {
+    flex: 1;
+  }
+
+  .fields-add {
+    flex: 1;
+  }
+}
+
+.fields-list-item-add {
+  color: $ICON_COLOR1;
+}
+
+.fields-input-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100%;
+  background-color: #fff;
+
+  &-hidden {
+    visibility: hidden;
+  }
+}

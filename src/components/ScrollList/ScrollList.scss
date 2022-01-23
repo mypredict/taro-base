@@ -1,0 +1,14 @@
+.scroll-list-container {
+  overflow: auto;
+  background-color: #fff;
+
+
+}
+
+.scroll-list-container-noscrollbar {
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+  }
+}

@@ -1,0 +1,33 @@
+.card-container {
+  margin-top: 25px;
+  padding: 20px 30px;
+}
+
+.card-date-input-label {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.card-input-label-title {
+  width: 25%;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.input-label-must-mark {
+  position: relative;
+
+  &::after {
+    content: '*';
+    position: absolute;
+    right: 20px;
+    top: 0;
+    color: red;
+  }
+}
+
+.card-input-label-date-picker {
+  flex: 1;
+  color: #3b393d;
+}

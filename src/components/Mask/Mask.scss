@@ -1,0 +1,29 @@
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fade-out {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.my-mask {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+
+  &__fade-in {
+    animation-name: fade-in;
+    animation-timing-function: ease-out;
+  }
+
+  &__fade-out {
+    animation-name: fade-out;
+    animation-timing-function: ease-in;
+  }
+}

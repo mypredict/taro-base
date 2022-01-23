@@ -1,0 +1,38 @@
+.my-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+
+  &:active {
+    opacity: 0.6;
+  }
+
+  &-disabled {
+    opacity: 0.6;
+
+    &:active {
+      opacity: 0.6;
+    }
+  }
+
+  &-common {
+    color: #3f4442;
+    background: $THEME_COLOR;
+  }
+
+  &::after {
+    border: none;
+  }
+
+  &-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    transform: translateY(-3px);
+  }
+}

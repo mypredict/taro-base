@@ -1,0 +1,39 @@
+.card-router-container {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .card-router-left {
+    display: flex;
+    flex-direction: column;
+
+    .card-router-title {
+      font-size: $FONT_SIZE2;
+      color: $FONT_COLOR1;
+    }
+
+    .card-router-desc {
+      margin-top: 10px;
+      font-size: $FONT_SIZE5;
+      color: $FONT_COLOR3;
+    }
+  }
+  
+  .card-router-right {
+    display: flex;
+    align-items: center;
+    
+    .card-router-result {
+      margin: 0 10px;
+      font-size: $FONT_SIZE3;
+      color: $FONT_COLOR3;
+      white-space: nowrap;
+    }
+
+    .at-icon-chevron-right {
+      font-size: $FONT_SIZE1;
+      color: $FONT_COLOR3;
+      transform: translateY(2px);
+    }
+  }
+}

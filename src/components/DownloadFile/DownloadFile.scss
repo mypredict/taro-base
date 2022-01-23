@@ -1,0 +1,17 @@
+.download-file-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 40px;
+
+  .download-file-progress {
+    margin: 20px 0 50px;
+  }
+
+  .download-file-btn {
+    width: 100%;
+    color: #fff;
+    background-color: $THEME_COLOR;
+  }
+}

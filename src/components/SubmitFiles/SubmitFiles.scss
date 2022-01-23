@@ -1,0 +1,62 @@
+.my-submit-files-container {
+  display: flex;
+  width: 100%;
+
+  .my-submit-files-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .my-submit-files-row {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    height: 80px;
+    white-space: nowrap;
+  }
+
+  .my-submit-files-labels {
+    width: 110px;
+    font-size: $FONT_SIZE4;
+    color: $FONT_COLOR3;
+  }
+
+  .my-submit-files-filenames {
+    flex: 1;
+
+    .my-submit-files-filename {
+      flex: 1;
+      display: flex;
+      min-width: 0;
+      border-bottom: 2px solid #eee;
+      font-size: $FONT_SIZE3;
+      color: $FONT_COLOR2;
+
+      &__delete {
+        text-decoration: line-through;
+        opacity: 0.5;
+      }
+
+      .at-icon-file-generic {
+        margin-right: 10px;
+      }
+  
+      ::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        color: transparent;
+      }
+    }
+  }
+
+  .my-submit-files-btns {
+    width: 160px;
+
+    .my-submit-files-btn {
+      justify-content: flex-end;
+      width: 100%;
+      border-bottom: 2px solid #eee;
+      color: $FONT_COLOR2;
+    }
+  }
+}
