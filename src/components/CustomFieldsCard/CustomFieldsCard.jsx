@@ -1,18 +1,19 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, memo, useImperativeHandle, forwardRef } from 'react';
 import { useImmer } from 'use-immer';
 import { View } from '@tarojs/components';
 import { AtIcon } from 'taro-ui';
-import { MyInput, MyCardAccordion } from '../basic_components/index';
+import { MyInput, MyCardAccordion } from '../index';
 import './CustomFieldsCard.scss';
 
 const defaultValue = ['姓名'];
 
-function CustomFieldsCard(props) {
+function CustomFieldsCard(props, ref) {
   const {
     className = '',
     headerClassName = '',
     title = '',
     showDesc = false,
+    descLabel = '重命名文件',
     desc = '根据提交者信息，重命名文件',
     placeholder = '如姓名、手机号',
     defaultChecked = false,
@@ -93,12 +94,28 @@ function CustomFieldsCard(props) {
     if (index === fields.length - 1 && fields.length < maxCount) handleAction('add');
   };
 
+  useImperativeHandle(ref, () => ({
+    setValue: ({ checked, value }) => {
+      setRealChecked(checked);
+      onCheckedChange({ detail: { checked } });
+
+      if (Array.isArray(value)) {
+        const newValue = value.map((field, index) => ({ field, index }));
+        const newFields = [...newValue, { field: '', index: newValue.length }];
+        setFields(newFields);
+
+        const fmtFields = newValue.filter(({ field }) => field.trim()).map(({ field }) => field);
+        onChange(checked ? fmtFields : []);
+      }
+    },
+  }));
+
   return (
     <MyCardAccordion
       headerClassName={headerClassName}
       title={title}
       showDesc={showDesc}
-      desc={realChecked ? `重命名文件：${fieldsMemo.join('-')}` : desc}
+      desc={realChecked ? `${descLabel}：${fieldsMemo.join('-')}` : desc}
       checked={realChecked}
       onChange={handleCheckedChange}
     >
@@ -136,4 +153,4 @@ function CustomFieldsCard(props) {
   );
 }
 
-export default CustomFieldsCard;
+export default memo(forwardRef(CustomFieldsCard));

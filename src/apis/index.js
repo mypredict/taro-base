@@ -2,8 +2,10 @@ import request, { raceDiscard, fetcher } from '@/lib/request';
 import { getUserToken, getUser } from './login';
 import { baseUrl } from './config';
 
+export * from './useRequest';
 export * from './config';
 export * from './login';
+export * from './test';
 
 // 同一个请求发起多次时保留最后一个的数据
 request.use(raceDiscard());

@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import Taro from '@tarojs/taro';
 import { View } from '@tarojs/components';
 import './PreviewFile.scss';
@@ -35,6 +35,13 @@ function PreviewFile(props) {
       },
     });
   };
+
+  // const openVideo = () => {
+  //   Taro.showLoading({ mask: true, title: '加载中...' });
+  //   Taro.previewMedia({
+
+  //   });
+  // };
 
   const openDocument = () => {
     Taro.showLoading({ mask: true, title: '加载中...' });
@@ -73,4 +80,4 @@ function PreviewFile(props) {
   );
 }
 
-export default PreviewFile;
+export default memo(PreviewFile);

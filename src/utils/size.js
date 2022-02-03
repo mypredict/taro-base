@@ -1,4 +1,5 @@
 export const SIZE_20_MB = 1024 * 1024 * 20;
+export const SIZE_200_MB = 1024 * 1024 * 200;
 
 export function fmtSize(size, options) {
   const { decimal = 1, unit } = options || {};

@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useRef, useState } from 'react';
 import Taro from '@tarojs/taro';
-import { useSystem } from '@/custom-hooks';
+import { useSystem } from '@/hooks';
 import { getUuid } from '@/utils';
 import { getUploadProgress } from '@/apis';
 
@@ -77,7 +77,6 @@ function useUpload(options) {
       name,
       formData,
       header: {
-        'content-type': 'multipart/form-data',
         uploadId: nextFile.uploadId,
         ...header,
       },

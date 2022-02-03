@@ -295,7 +295,7 @@ function MyDatePicker(props) {
               </View>
               <View className="my-date-picker-input-time">{`${showDate.hour}点${showDate.minute}分`}</View>
             </View>
-            <AtIcon value="chevron-right" size="20" color="rgba(0, 0, 0, 0.4)" />
+            <View className="at-icon at-icon-chevron-right my-date-picker__icon" />
           </>
         )}
       </View>

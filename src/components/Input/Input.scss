@@ -43,10 +43,6 @@
   width: 100%;
   overflow-y: visible;
 
-  &-label {
-    height: 100px;
-  }
-
   .my-column-input-label {
     position: absolute;
     top: 0;
@@ -54,6 +50,7 @@
     padding-left: 10px;
     font-size: 26px;
     color: #999;
+    pointer-events: none;
   }
   
   .my-column-input-label-required {
@@ -82,12 +79,24 @@
     justify-content: flex-end;
     align-items: center;
     min-width: 80px;
-    padding: 30px 10px 0;
+    padding: 30px 10px 10px;
     font-size: 26px;
     color: #666;
   }
 
   .my-column-input-placeholder {
     color: rgba(0, 0, 0, 0.4);
+  }
+
+  &-label {
+    height: 100px;
+
+    .my-column-input {
+      padding: 50px 0 10px 10px;
+    }
+
+    .my-column-input-limit {
+      padding: 50px 10px 10px;
+    }
   }
 }

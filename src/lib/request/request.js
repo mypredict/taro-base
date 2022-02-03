@@ -37,7 +37,8 @@ export function initRequest(initOptions = {}) {
       ...params,
       ...options,
     };
-    return await run(ctx);
+    const { res } = await run(ctx);
+    return res;
   };
 
   runner.setOptions = (callback) => {

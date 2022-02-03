@@ -22,7 +22,14 @@ function ChooseFile(props) {
   } = props;
 
   const successCallback = (target) => {
-    const checkTempFiles = target.tempFiles.every((file) => {
+    const fmtTarget = target;
+    if (type === 'video') {
+      fmtTarget.tempFiles = [
+        { ...target, path: target.tempFilePath, name: target.tempFilePath, type: 'video' },
+      ];
+    }
+
+    const checkTempFiles = fmtTarget.tempFiles.every((file) => {
       if (file.size > maxSize) {
         Taro.atMessage({
           message: `${file.name}文件大小超出${fmtSize(maxSize)}，请重新选择`,
@@ -35,7 +42,7 @@ function ChooseFile(props) {
     });
 
     if (checkTempFiles) {
-      onSuccess(target);
+      onSuccess(fmtTarget);
     }
   };
 
@@ -50,6 +57,14 @@ function ChooseFile(props) {
   };
 
   const handleChooseFile = () => {
+    if (type === 'video') {
+      Taro.chooseVideo({
+        sourceType,
+        success: successCallback,
+        fail: failCallback,
+      });
+      return;
+    }
     if (type === 'album') {
       Taro.chooseImage({
         count,

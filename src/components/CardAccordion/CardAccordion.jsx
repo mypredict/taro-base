@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo, forwardRef, useImperativeHandle } from 'react';
 import { View, Text, Switch } from '@tarojs/components';
 import { MyCard } from '@/components';
 import './CardAccordion.scss';
 
-function MyCardAccordion(props) {
+function MyCardAccordion(props, ref) {
   const {
     title = '',
     desc = '',
@@ -41,6 +41,13 @@ function MyCardAccordion(props) {
     }
   }, [checked]);
 
+  useImperativeHandle(ref, () => ({
+    setValue: (value) => {
+      setRealChecked(value);
+      onChange({ detail: { value } });
+    },
+  }));
+
   return (
     <MyCard
       className={`card-accordion ${
@@ -61,4 +68,4 @@ function MyCardAccordion(props) {
   );
 }
 
-export default MyCardAccordion;
+export default memo(forwardRef(MyCardAccordion));

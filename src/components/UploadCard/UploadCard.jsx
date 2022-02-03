@@ -1,5 +1,5 @@
 import { memo, useEffect, useState } from 'react';
-import { MyCardAccordion } from '../basic_components/index';
+import { MyCardAccordion } from '../index';
 import UploadFile from '../UploadFile/UploadFile';
 import './UploadCard.scss';
 

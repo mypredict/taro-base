@@ -1,7 +1,12 @@
+import { Provider, state } from '@/store';
 import './app.scss';
 
 function App(props) {
-  return props.children;
+  return (
+    <Provider state={state}>
+      {props.children}
+    </Provider>
+  );
 }
 
 export default App;

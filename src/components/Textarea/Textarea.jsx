@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, forwardRef, useImperativeHandle, memo } from 'react';
 import { View, Textarea } from '@tarojs/components';
 import './Textarea.scss';
 
-function MyTextarea(props) {
+function MyTextarea(props, ref) {
   const {
     className = '',
     textareaClassName = '',
@@ -14,6 +14,14 @@ function MyTextarea(props) {
   } = props;
 
   const [freeValue, setFreeValue] = useState(defaultValue);
+
+  useImperativeHandle(ref, () => ({
+    setValue: (value) => {
+      setFreeValue(value);
+      onInput({ target: { value } });
+    },
+  }));
+
   useEffect(() => {
     if (resetValue !== undefined) {
       setFreeValue(resetValue);
@@ -50,4 +58,4 @@ function MyTextarea(props) {
   );
 }
 
-export default MyTextarea;
+export default memo(forwardRef(MyTextarea));

@@ -10,7 +10,7 @@ import React, {
 import Taro from '@tarojs/taro';
 import { AtIcon } from 'taro-ui';
 import { View, Image } from '@tarojs/components';
-import { MyDrawer } from '../basic_components';
+import { MyDrawer } from '../index';
 import useUploadFile from './useUploadFile';
 import { fmtSize } from '@/utils/index';
 import { statusMapIcon, fileChooseTypes, imageChooseTypes } from './constants';

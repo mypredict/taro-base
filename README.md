@@ -4,9 +4,13 @@
 # 依赖工具
 npm install -g @tarojs/cli
 
+# iconfont
+yarn add taro-iconfont-cli --dev
+npx iconfont-init
+
 # 开发环境
 1. 装包: yarn
-2. 启动: yarn dev:weapp
+2. 启动: npm start
 
 # 目录介绍
 |

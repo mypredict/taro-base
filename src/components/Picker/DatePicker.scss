@@ -5,6 +5,11 @@
   height: 45vh;
 }
 
+.my-date-picker__icon {
+  font-size: $FONT_SIZE1;
+  color: $FONT_COLOR3;
+}
+
 .my-date-picker-input {
   display: flex;
   justify-content: space-between;

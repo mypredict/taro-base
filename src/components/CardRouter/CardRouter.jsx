@@ -9,6 +9,7 @@ function CardRouter(props) {
     title,
     desc,
     result,
+    canClick = true,
     color = 'rgba(0, 0, 0, 0.9)',
     resultColor = 'rgba(0, 0, 0, 0.6)',
     iconColor = 'rgba(0, 0, 0, 0.7)',
@@ -18,7 +19,7 @@ function CardRouter(props) {
   return (
     <MyCard
       {...props}
-      className={`card-router-container click-active ${className}`}
+      className={`card-router-container ${canClick ? 'click-active' : ''} ${className}`}
       style={{ ...style, color }}
     >
       {title && (
@@ -36,7 +37,10 @@ function CardRouter(props) {
             {result}
           </View>
         )}
-        <View className="at-icon at-icon-chevron-right" style={{ color: iconColor }} />
+
+        {canClick && (
+          <View className="at-icon at-icon-chevron-right" style={{ color: iconColor }} />
+        )}
       </View>
     </MyCard>
   );

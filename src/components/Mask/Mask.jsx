@@ -6,6 +6,7 @@ function MyMask(props) {
   const {
     className = '',
     visible,
+    destroyOnClose = false,
     delay = 300,
     onClick = () => {},
     onCancel = () => {},
@@ -49,7 +50,7 @@ function MyMask(props) {
       style={viewStyle}
       onClick={onClick}
     >
-      <View onClick={(e) => e.stopPropagation()}>{children}</View>
+      {(!destroyOnClose || visible) && <View onClick={(e) => e.stopPropagation()}>{children}</View>}
     </View>
   );
 }

@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { View } from '@tarojs/components';
 import dayjs from 'dayjs';
-import { MyDatePicker, MyCard } from '../basic_components/index';
+import { MyDatePicker, MyCard } from '../index';
 import './DateCard.scss';
 
 function DateCard(props) {

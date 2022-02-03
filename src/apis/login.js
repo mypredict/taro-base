@@ -27,7 +27,7 @@ export async function getUserToken(force) {
 
   if (force || !localToken) {
     const { code } = await getUserCode();
-    const { res } = await userLogin(code);
+    const res = await userLogin(code);
 
     if (res.data.code === 0) {
       const token = res.data.data.token;

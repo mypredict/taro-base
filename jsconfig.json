@@ -5,9 +5,10 @@
       "@/lib/*": ["./src/lib/*"],
       "@/apis/*": ["./src/apis/*"],
       "@/assets/*": ["./src/assets/*"],
-      "@/hooks/*": ["./src/custom-hooks/*"],
+      "@/hooks/*": ["./src/hooks/*"],
       "@/components/*": ["./src/components/*"],
-      "@/utils/*": ["./src/utils/*"]
+      "@/utils/*": ["./src/utils/*"],
+      "@/store/*": ["./src/store/*"]
     }
   }
 }

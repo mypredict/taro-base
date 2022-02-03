@@ -12,6 +12,7 @@
 
 .card-input-label-title {
   width: 25%;
+  font-size: $FONT_SIZE2;
   color: rgba(0, 0, 0, 0.7);
 }
 
@@ -29,5 +30,7 @@
 
 .card-input-label-date-picker {
   flex: 1;
+  display: flex;
+  align-items: center;
   color: #3b393d;
 }

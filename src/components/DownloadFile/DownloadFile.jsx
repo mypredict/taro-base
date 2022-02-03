@@ -2,9 +2,9 @@ import React, { memo, useState, useMemo, useEffect } from 'react';
 import Taro from '@tarojs/taro';
 import { AtFloatLayout, AtProgress, AtMessage } from 'taro-ui';
 import { View } from '@tarojs/components';
-import { MyButton } from '../basic_components';
+import { MyButton } from '../index';
 import { fmtSize } from '@/utils/index';
-import useRequest from '@/custom-hooks/useRequest';
+import useRequest from '@/hooks/useRequest';
 import { getUserToken, postPackFile, queryPackInfo, fileBaseUrl } from '@/apis';
 import './DownloadFile.scss';
 

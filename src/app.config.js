@@ -1,4 +1,7 @@
+import { useGlobalIconFont } from './assets/iconfont/helper';
+
 export default {
+  usingComponents: Object.assign(useGlobalIconFont()),
   pages: [
     'pages/index/index', // 日历面板
     'pages/my/index', // 我的

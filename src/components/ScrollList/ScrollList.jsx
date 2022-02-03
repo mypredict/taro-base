@@ -1,7 +1,7 @@
 import { memo, useState, useEffect } from 'react';
 import Taro from '@tarojs/taro';
 import { ScrollView, View } from '@tarojs/components';
-import { MyLoading } from '../basic_components';
+import { MyLoading } from '../index';
 import './ScrollList.scss';
 
 const boxShadowsMap = {
