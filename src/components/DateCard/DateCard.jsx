@@ -1,12 +1,13 @@
-import { memo } from 'react';
+import { forwardRef, useImperativeHandle, memo, useRef } from 'react';
 import { View } from '@tarojs/components';
 import dayjs from 'dayjs';
 import { MyDatePicker, MyCard } from '../index';
 import './DateCard.scss';
 
-function DateCard(props) {
+function DateCard(props, ref) {
   const {
     title = '',
+    required = false,
     minDate = new Date(dayjs().add(10, 'minute').valueOf()),
     maxDate = new Date(dayjs().add(2, 'month').valueOf()),
     defaultDate,
@@ -14,11 +15,19 @@ function DateCard(props) {
     onChange = () => {},
   } = props;
 
+  const dateRef = useRef();
+  useImperativeHandle(ref, () => ({
+    setValue: dateRef.current.setValue,
+  }));
+
   return (
     <MyCard className="card-container">
       <View className="card-date-input-label">
-        <View className="card-input-label-title input-label-must-mark">截止时间</View>
+        <View className={`card-input-label-title ${required ? 'input-label-must-mark' : ''}`}>
+          截止时间
+        </View>
         <MyDatePicker
+          ref={dateRef}
           title={title}
           className="card-input-label-date-picker"
           minDate={minDate}
@@ -32,4 +41,4 @@ function DateCard(props) {
   );
 }
 
-export default memo(DateCard);
+export default memo(forwardRef(DateCard));

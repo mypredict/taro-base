@@ -4,24 +4,19 @@ import { FormContext } from './Form';
 import './FormItem.scss';
 
 function FormItem(props) {
-  const { type, name, children } = props;
+  const { type, name, className, style, children } = props;
   const { disabled, resetFieldsValue, onChange } = useContext(FormContext);
 
   const formItemRef = useRef();
 
   // 手动设置值
   useEffect(() => {
-    if (type === 'input') {
-      formItemRef.current.setValue(resetFieldsValue[name]);
-      return;
-    }
-
     formItemRef.current.setValue(resetFieldsValue[name]);
   }, [type, name, resetFieldsValue]);
 
   // 自动设置值得回调
   const propsMemo = useMemo(() => {
-    if (type === 'input') {
+    if (['input', 'textarea'].includes(type)) {
       return {
         ref: formItemRef,
         disabled,
@@ -31,17 +26,18 @@ function FormItem(props) {
       };
     }
 
-    return {
-      ref: formItemRef,
-      disabled,
-      onChange: () => {
-        onChange();
-      },
-    };
+    if (type === 'datePicker') {
+      return {
+        ref: formItemRef,
+        onChange: (value) => {
+          onChange(name, value.valueOf());
+        },
+      };
+    }
   }, [type, name, disabled, onChange]);
 
   return (
-    <View className="form-item-comp">
+    <View className={`form-item-comp ${className}`} style={style}>
       {React.Children.map(children, (child) => {
         return React.cloneElement(child, propsMemo);
       })}

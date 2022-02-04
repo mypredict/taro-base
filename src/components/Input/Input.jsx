@@ -9,7 +9,7 @@ function MyInput(props, ref) {
     inputClassName,
     limitClassName,
     layout = 'row',
-    label = '',
+    label,
     required = false,
     defaultValue,
     value,

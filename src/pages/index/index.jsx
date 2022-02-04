@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useDidShow } from '@tarojs/taro';
 import { View } from '@tarojs/components';
 import { AtMessage } from 'taro-ui';
-import { PageContainer, Form, FormItem, Input, Textarea } from '@/components';
+import { PageContainer, Form, FormItem, Input, Textarea, DateCard } from '@/components';
 import { useRequest, getMyCreateList } from '@/apis';
 import { useInteract } from '@/store';
 import './index.scss';
@@ -38,6 +38,7 @@ function Index() {
       formRef.current.setFieldsValue({
         a: '123',
         b: '456',
+        c: new Date().valueOf() + 10001234,
       });
 
       console.log(formRef.current.getFieldsValue());
@@ -61,17 +62,33 @@ function Index() {
 
       <Form
         ref={formRef}
-        initialValues={{ a: 'a', b: 'b' }}
+        initialValues={{ a: 'a', b: 'b', c: new Date() }}
         onChange={(value) => {
           console.log('form 改变了', value);
         }}
       >
         <FormItem type="input" name="a">
-          <Input placeholder={'测试form input'} maxlength={20} limit={20} />
+          <Input
+            label="input"
+            required={true}
+            placeholder={'测试form input'}
+            maxlength={20}
+            limit={20}
+          />
         </FormItem>
 
-        <FormItem type="input" name="b">
-          <Textarea placeholder={'测试form textarea'} maxlength={200} limit={200} />
+        <FormItem type="textarea" name="b">
+          <Textarea
+            label="textarea"
+            required={true}
+            placeholder={'测试form textarea'}
+            maxlength={200}
+            limit={200}
+          />
+        </FormItem>
+
+        <FormItem type="datePicker" name="c">
+          <DateCard />
         </FormItem>
       </Form>
     </PageContainer>

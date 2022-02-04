@@ -21,6 +21,7 @@ import FormItem from './Form/FormItem';
 import Input from './Input/Input';
 import Textarea from './Textarea/Textarea';
 import PreviewFile from './PreviewFile/PreviewFile';
+import DateCard from './DateCard/DateCard';
 
 export {
   MyButton,
@@ -46,4 +47,5 @@ export {
   Input,
   Textarea,
   PreviewFile,
+  DateCard,
 };

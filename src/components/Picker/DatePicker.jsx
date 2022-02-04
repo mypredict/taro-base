@@ -1,6 +1,14 @@
-import { useEffect, useState, useReducer, useMemo, useCallback } from 'react';
+import {
+  useEffect,
+  useState,
+  useReducer,
+  useMemo,
+  useCallback,
+  forwardRef,
+  useImperativeHandle,
+  memo,
+} from 'react';
 import { View, Button } from '@tarojs/components';
-import { AtIcon } from 'taro-ui';
 import MyDrawer from '../Drawer/Drawer';
 import {
   dateFields,
@@ -59,7 +67,7 @@ const touchInfo = {
   ...initDateFieldsInfo,
 };
 
-function MyDatePicker(props) {
+function DatePicker(props, ref) {
   const {
     mode = 'YYYY-MM-DD-hh-mm',
     className = '',
@@ -262,10 +270,19 @@ function MyDatePicker(props) {
   const [showDate, setShowDate] = useState(dateFieldsZeroPadding(getDate(date || defaultDate)));
   useEffect(() => {
     if (date) {
-      setDateInfo(getDate(date));
-      setShowDate(dateFieldsZeroPadding(getDate(date)));
+      const fmtDate = typeof date === 'number' ? new Date(date) : date;
+      setDateInfo(getDate(fmtDate));
+      setShowDate(dateFieldsZeroPadding(getDate(fmtDate)));
     }
   }, [date]);
+
+  useImperativeHandle(ref, () => ({
+    setValue: (date) => {
+      const fmtDate = typeof date === 'number' ? new Date(date) : date;
+      setDateInfo(getDate(fmtDate));
+      setShowDate(dateFieldsZeroPadding(getDate(fmtDate)));
+    },
+  }));
 
   const onClose = () => {
     if (typeof visible === 'boolean' && onVisibleChange) {
@@ -285,48 +302,48 @@ function MyDatePicker(props) {
   };
 
   return (
-    <View className={`my-date-picker-container ${className}`}>
-      <View className="my-date-picker-input" onClick={() => setIsVisible(true)}>
+    <View className={`date-picker-container ${className}`}>
+      <View className="date-picker-input" onClick={() => setIsVisible(true)}>
         {children || (
           <>
-            <View className="my-date-picker-input-date">
-              <View className="my-date-picker-input-day">
+            <View className="date-picker-input-date">
+              <View className="date-picker-input-day">
                 {`${showDate.year}年${showDate.month}月${showDate.day}日`}
               </View>
-              <View className="my-date-picker-input-time">{`${showDate.hour}点${showDate.minute}分`}</View>
+              <View className="date-picker-input-time">{`${showDate.hour}点${showDate.minute}分`}</View>
             </View>
-            <View className="at-icon at-icon-chevron-right my-date-picker__icon" />
+            <View className="at-icon at-icon-chevron-right date-picker__icon" />
           </>
         )}
       </View>
 
       <MyDrawer visible={isVisible} onClose={onClose}>
-        <View className="my-date-picker-drawer">
-          <View className="my-date-picker-drawer-header">
+        <View className="date-picker-drawer">
+          <View className="date-picker-drawer-header">
             <Button
-              className="my-date-picker-drawer-header-btn my-date-picker-drawer-header-btn__cancel"
+              className="date-picker-drawer-header-btn date-picker-drawer-header-btn__cancel"
               onClick={onClose}
             >
               取消
             </Button>
             <View>{titleMemo}</View>
             <Button
-              className="my-date-picker-drawer-header-btn my-date-picker-drawer-header-btn__confirm"
+              className="date-picker-drawer-header-btn date-picker-drawer-header-btn__confirm"
               onClick={onConfirm}
             >
               确定
             </Button>
           </View>
 
-          <View className="my-date-picker-drawer-content" catchMove catchEvent>
+          <View className="date-picker-drawer-content" catchMove catchEvent>
             <View
-              className="my-date-picker-date"
+              className="date-picker-date"
               style={{ transform: `translateY(-${rowHeight / 2}px)` }}
             >
               {Object.values(dateFieldsListMemo).map(({ field, dates }) => (
                 <View
                   key={field}
-                  className="my-date-picker-column"
+                  className="date-picker-column"
                   style={{
                     transform: `translateY(${-datesOffsetY[field]}px)`,
                     transitionDuration: `${touchInfo[field].transitionDuration}ms`,
@@ -335,25 +352,25 @@ function MyDatePicker(props) {
                   onTransitionEnd={() => limitMove(field)}
                 >
                   {dates.map((date) => (
-                    <View key={date} className="my-date-picker-row" style={{ height: rowHeight }}>
+                    <View key={date} className="date-picker-row" style={{ height: rowHeight }}>
                       {`${dateZeroPadding(date)}${dateFieldsTextMap[field]}`}
                     </View>
                   ))}
                 </View>
               ))}
             </View>
-            <View className="my-date-picker-mask">
-              <View className="my-date-picker-mask-up" />
-              <View className="my-date-picker-mask-center" style={{ height: rowHeight }} />
-              <View className="my-date-picker-mask-down" />
+            <View className="date-picker-mask">
+              <View className="date-picker-mask-up" />
+              <View className="date-picker-mask-center" style={{ height: rowHeight }} />
+              <View className="date-picker-mask-down" />
 
-              <View className="my-date-picker-mask-column-container">
+              <View className="date-picker-mask-column-container">
                 {Object.values(dateFieldsListMemo).map(({ field, dates }) => (
                   <View
                     catchMove
                     catchEvent
                     key={field}
-                    className="my-date-picker-mask-column"
+                    className="date-picker-mask-column"
                     onTouchStart={(e) => onTouchStart(e, field, dates.length * rowHeight)}
                     onTouchMove={onTouchMove}
                     onTouchEnd={onTouchEnd}
@@ -368,4 +385,4 @@ function MyDatePicker(props) {
   );
 }
 
-export default MyDatePicker;
+export default memo(forwardRef(DatePicker));
