@@ -1,4 +1,4 @@
-import { useEffect, useState, forwardRef, useImperativeHandle, memo } from 'react';
+import { useState, forwardRef, useImperativeHandle, memo } from 'react';
 import { Input, View, Label } from '@tarojs/components';
 import './Input.scss';
 
@@ -12,7 +12,6 @@ function MyInput(props, ref) {
     label = '',
     required = false,
     defaultValue,
-    resetValue,
     value,
     onInput,
     limit,
@@ -26,12 +25,6 @@ function MyInput(props, ref) {
       onInput({ target: { value } });
     },
   }));
-
-  useEffect(() => {
-    if (resetValue !== undefined) {
-      setFreeValue(resetValue);
-    }
-  }, [resetValue]);
 
   const handleInput = (e) => {
     if (typeof onInput === 'function') {

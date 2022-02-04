@@ -23,7 +23,6 @@ function CheckboxGroup(props, ref) {
     defaultValue = [],
     value = undefined,
     onChange = () => {},
-    resetValue,
     children,
   } = props;
 
