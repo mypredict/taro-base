@@ -1,5 +1,6 @@
+import { memo } from 'react';
 import { View } from '@tarojs/components';
-import MyCard from '../Card/Card';
+import { Card, IconFont } from '../index';
 import './CardRouter.scss';
 
 function CardRouter(props) {
@@ -17,7 +18,7 @@ function CardRouter(props) {
   } = props;
 
   return (
-    <MyCard
+    <Card
       {...props}
       className={`card-router-container ${canClick ? 'click-active' : ''} ${className}`}
       style={{ ...style, color }}
@@ -38,12 +39,10 @@ function CardRouter(props) {
           </View>
         )}
 
-        {canClick && (
-          <View className="at-icon at-icon-chevron-right" style={{ color: iconColor }} />
-        )}
+        {canClick && <IconFont className="card-router-icon" name="right" color={iconColor} />}
       </View>
-    </MyCard>
+    </Card>
   );
 }
 
-export default CardRouter;
+export default memo(CardRouter);

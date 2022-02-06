@@ -10,7 +10,7 @@ function Modal(props) {
     className,
     style,
     title,
-    closable = true,
+    closable = false,
     header,
     headerClassName,
     content,
@@ -33,7 +33,7 @@ function Modal(props) {
         <View className={`modal-header ${headerClassName}`}>
           {header || <View className="modal-title">{title}</View>}
           {closable && (
-            <IconFont className="modal-close click-active" name="quxiao2" onClick={onCancel} />
+            <IconFont className="modal-close click-active" name="close" onClick={onCancel} />
           )}
         </View>
         <View className={`modal-body ${bodyClassName}`}>

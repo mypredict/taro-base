@@ -9,7 +9,7 @@ import {
   memo,
 } from 'react';
 import { View, Button } from '@tarojs/components';
-import MyDrawer from '../Drawer/Drawer';
+import { Drawer, IconFont } from '../index';
 import {
   dateFields,
   dateFieldsMap,
@@ -312,12 +312,12 @@ function DatePicker(props, ref) {
               </View>
               <View className="date-picker-input-time">{`${showDate.hour}点${showDate.minute}分`}</View>
             </View>
-            <View className="at-icon at-icon-chevron-right date-picker__icon" />
+            <IconFont className="date-picker__icon" name="right" />
           </>
         )}
       </View>
 
-      <MyDrawer visible={isVisible} onClose={onClose}>
+      <Drawer visible={isVisible} onClose={onClose}>
         <View className="date-picker-drawer">
           <View className="date-picker-drawer-header">
             <Button
@@ -380,7 +380,7 @@ function DatePicker(props, ref) {
             </View>
           </View>
         </View>
-      </MyDrawer>
+      </Drawer>
     </View>
   );
 }

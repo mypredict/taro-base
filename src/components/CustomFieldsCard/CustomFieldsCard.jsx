@@ -1,8 +1,7 @@
 import { useEffect, useMemo, useState, memo, useImperativeHandle, forwardRef } from 'react';
 import { useImmer } from 'use-immer';
 import { View } from '@tarojs/components';
-import { AtIcon } from 'taro-ui';
-import { MyInput, MyCardAccordion } from '../index';
+import { MyInput, MyCardAccordion, IconFont } from '../index';
 import './CustomFieldsCard.scss';
 
 const defaultValue = ['姓名'];
@@ -17,21 +16,20 @@ function CustomFieldsCard(props, ref) {
     desc = '根据提交者信息，重命名文件',
     placeholder = '如姓名、手机号',
     defaultChecked = false,
-    resetChecked,
     checked,
     onCheckedChange = () => {},
     maxLength = 10,
     maxCount = 5,
-    resetValue = defaultValue,
+    value = defaultValue,
     onChange = () => {},
   } = props;
 
   const [realChecked, setRealChecked] = useState(defaultChecked || checked || false);
   useEffect(() => {
-    if (typeof resetChecked === 'boolean') {
-      setRealChecked(resetChecked);
+    if (typeof checked === 'boolean') {
+      setRealChecked(checked);
     }
-  }, [resetChecked]);
+  }, [checked]);
 
   const handleCheckedChange = (e) => {
     if (!(typeof checked === 'boolean')) {
@@ -40,18 +38,12 @@ function CustomFieldsCard(props, ref) {
     onCheckedChange(e);
   };
 
-  useEffect(() => {
-    if (typeof checked === 'boolean') {
-      setRealChecked(checked);
-    }
-  }, [checked]);
-
   const [fields, setFields] = useImmer([]);
   useEffect(() => {
-    const newValue = resetValue.map((field, index) => ({ field, index }));
+    const newValue = value.map((field, index) => ({ field, index }));
     const newFields = [...newValue, { field: '', index: newValue.length }];
     setFields(newFields);
-  }, [resetValue]);
+  }, [value]);
 
   const onInput = (value, index) => {
     setFields((draft) => {
@@ -138,10 +130,11 @@ function CustomFieldsCard(props, ref) {
                 onInput={(e) => onInput(e.target.value, index)}
               />
               {maxCount > 1 && (
-                <AtIcon
-                  className={`fields-input-icon ${actionIsAdd && 'fields-input-icon-hidden'}`}
-                  value={'subtract'}
-                  size="20"
+                <IconFont
+                  className={`fields-input-icon ${
+                    actionIsAdd && 'fields-input-icon-hidden'
+                  } click-active`}
+                  name="delete"
                   onClick={() => !actionIsAdd && handleAction('delete', index)}
                 />
               )}

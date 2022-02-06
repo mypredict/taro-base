@@ -1,6 +1,6 @@
 Component({
   properties: {
-    // quxiao | quxiao1 | quxiao2
+    // image | wenjian | wenjian1 | list | left | right | delete | add | close
     name: {
       type: String,
     },

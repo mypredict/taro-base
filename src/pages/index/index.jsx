@@ -2,7 +2,16 @@ import { useEffect, useRef } from 'react';
 import { useDidShow } from '@tarojs/taro';
 import { View } from '@tarojs/components';
 import { AtMessage } from 'taro-ui';
-import { PageContainer, Form, FormItem, Input, Textarea, DateCard } from '@/components';
+import {
+  PageContainer,
+  Form,
+  FormItem,
+  Input,
+  Textarea,
+  DateCard,
+  CustomFieldsCard,
+  CardRouter,
+} from '@/components';
 import { useRequest, getMyCreateList } from '@/apis';
 import { useInteract } from '@/store';
 import './index.scss';
@@ -21,6 +30,7 @@ function Index() {
   const onClick = () => {
     showModal({
       title: '这是标题',
+      closable: true,
       content:
         '这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容',
       onCancel: () => {
@@ -38,7 +48,8 @@ function Index() {
       formRef.current.setFieldsValue({
         a: '123',
         b: '456',
-        c: new Date().valueOf() + 10001234,
+        c: ['姓名', '手机号'],
+        d: new Date().valueOf() + 10001234,
       });
 
       console.log(formRef.current.getFieldsValue());
@@ -62,7 +73,7 @@ function Index() {
 
       <Form
         ref={formRef}
-        initialValues={{ a: 'a', b: 'b', c: new Date() }}
+        initialValues={{ a: 'a', b: 'b', c: ['nihao'], d: new Date().valueOf() }}
         onChange={(value) => {
           console.log('form 改变了', value);
         }}
@@ -87,9 +98,15 @@ function Index() {
           />
         </FormItem>
 
-        <FormItem type="datePicker" name="c">
+        <FormItem type="customFields" name="c">
+          <CustomFieldsCard title="重命名" />
+        </FormItem>
+
+        <FormItem type="datePicker" name="d">
           <DateCard />
         </FormItem>
+
+        <CardRouter title="查看已提交人、文件" desc="你是此任务发起人，仅你可见" />
       </Form>
     </PageContainer>
   );

@@ -11,6 +11,13 @@ function FormItem(props) {
 
   // 手动设置值
   useEffect(() => {
+    if (type === 'customFields') {
+      formItemRef.current.setValue({
+        checked: resetFieldsValue[name]?.length ? true : false,
+        value: resetFieldsValue[name],
+      });
+      return;
+    }
     formItemRef.current.setValue(resetFieldsValue[name]);
   }, [type, name, resetFieldsValue]);
 
@@ -22,6 +29,15 @@ function FormItem(props) {
         disabled,
         onInput: (e) => {
           onChange(name, e.target.value);
+        },
+      };
+    }
+
+    if (type === 'customFields') {
+      return {
+        ref: formItemRef,
+        onChange: (value) => {
+          onChange(name, value);
         },
       };
     }
