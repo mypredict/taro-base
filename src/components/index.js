@@ -17,15 +17,22 @@ import Drawer from './Drawer/Drawer';
 import Mask from './Mask/Mask';
 import Toast from './Toast/Toast';
 import Modal from './Modal/Modal';
+import Loading from './Loading/Loading';
+import Progress from './Progress/Progress';
 import Form from './Form/Form';
 import FormItem from './Form/FormItem';
 import Input from './Input/Input';
+import Search from './Search/Search';
 import Textarea from './Textarea/Textarea';
+import Tabs from './Tabs/Tabs';
+import TabPane from './Tabs/TabPane';
 import PreviewFile from './PreviewFile/PreviewFile';
 import Card from './Card/Card';
 import CardRouter from './CardRouter/CardRouter';
+import CardAccordion from './CardAccordion/CardAccordion';
 import DateCard from './DateCard/DateCard';
 import CustomFieldsCard from './CustomFieldsCard/CustomFieldsCard';
+import InfiniteScrollList from './InfiniteScrollList/InfiniteScrollList';
 
 export {
   MyButton,
@@ -47,13 +54,20 @@ export {
   Mask,
   Toast,
   Modal,
+  Loading,
+  Progress,
   Form,
   FormItem,
   Input,
+  Search,
   Textarea,
+  Tabs,
+  TabPane,
   PreviewFile,
   Card,
   CardRouter,
+  CardAccordion,
   DateCard,
   CustomFieldsCard,
+  InfiniteScrollList,
 };

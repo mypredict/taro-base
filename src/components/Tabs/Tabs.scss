@@ -1,0 +1,64 @@
+.tabs-comp {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  overflow-x: hidden;
+
+  .tabs-header {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 80px;
+    border-bottom: 2px solid #ddd;
+    color: $FONT_COLOR2;
+
+    .tabs-header-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+
+      &__active {
+        color: $THEME_COLOR;
+      }
+    }
+
+    .tabs-cursor {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      background-color: $THEME_COLOR;
+      transition: transform 0.3s;
+    }
+  }
+
+  .tabs-body {
+    display: flex;
+    transition: transform 0.3s;
+    
+    .tabs-body-container {
+      flex: 1;
+      min-width: 0;
+      height: auto;
+      overflow: hidden;
+    }
+  }
+}
+
+.tabs-comp__scroll {
+  flex: 1;
+  height: 100%;
+
+  .tabs-body {
+    flex: 1;
+    min-height: 0;
+    
+    .tabs-body-container {
+      max-height: 100%;
+      overflow-y: auto;
+    }
+  }
+}

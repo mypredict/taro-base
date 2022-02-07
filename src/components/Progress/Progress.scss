@@ -1,0 +1,35 @@
+.progress-comp {
+  display: flex;
+  align-items: center;
+
+  .progress-percent-container {
+    border-radius: 20px;
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    background-color: #dedede;
+    overflow: hidden;
+  }
+
+  .progress-percent {
+    height: 100%;
+
+    &__ok {
+      background-color: #70bcfa;
+    }
+
+    &__error {
+      background-color: #f67070;
+    }
+
+    &__stop {
+      background-color: #bbb;
+    }
+  }
+
+  .progress-percent-number {
+    margin-left: 10px;
+    font-size: $FONT_SIZE4;
+    color: $FONT_COLOR4;
+  }
+}

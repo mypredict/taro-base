@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useDidShow } from '@tarojs/taro';
 import { View } from '@tarojs/components';
-import { AtMessage } from 'taro-ui';
 import {
   PageContainer,
   Form,
@@ -11,6 +10,9 @@ import {
   DateCard,
   CustomFieldsCard,
   CardRouter,
+  Progress,
+  Tabs,
+  TabPane,
 } from '@/components';
 import { useRequest, getMyCreateList } from '@/apis';
 import { useInteract } from '@/store';
@@ -58,7 +60,34 @@ function Index() {
 
   return (
     <PageContainer header={<View>456</View>} footer={<View>123</View>}>
-      <AtMessage />
+      <Progress style={{ margin: '40px 0' }} />
+
+      <Tabs
+        defaultActiveKey="1"
+        onChange={(value) => {
+          console.log(value);
+        }}
+      >
+        <TabPane tab="1" key="1">
+          <View>1111</View>
+          <View>1111</View>
+          <View>1111</View>
+          <View>1111</View>
+        </TabPane>
+        <TabPane tab="2" key="2">
+          <Textarea
+            label="textarea"
+            required={true}
+            placeholder={'测试form textarea'}
+            maxlength={200}
+            limit={200}
+          />
+        </TabPane>
+        <TabPane tab="3" key="3">
+          3
+        </TabPane>
+      </Tabs>
+
       <View onClick={onClick}>123</View>
       <View
         onClick={() =>
