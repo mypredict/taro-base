@@ -15,7 +15,8 @@ function Tabs(props) {
     className,
     style,
     scroll = false,
-    mutationLen = 30,
+    mutationLen = 40,
+    destroyInactiveTabPane = true,
     defaultActiveKey,
     activeKey,
     onChange = emptyFun,
@@ -120,7 +121,8 @@ function Tabs(props) {
                 onTouchEnd={handleTouchEnd}
                 onTouchMove={handleTouchMove}
               >
-                {React.cloneElement(child, { _key: child.key })}
+                {!(destroyInactiveTabPane && currentActiveKey !== child.key) &&
+                  React.cloneElement(child, { _key: child.key })}
               </View>
             );
           })}

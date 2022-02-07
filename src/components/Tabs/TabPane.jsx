@@ -6,7 +6,7 @@ import './TabPane.scss';
 function TabPane(props) {
   const { className, style, _key, children } = props;
 
-  const { activeKey, onClick } = useContext(TabsContext);
+  const { activeKey } = useContext(TabsContext);
 
   return (
     <View

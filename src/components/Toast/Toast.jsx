@@ -1,6 +1,5 @@
 import { memo, useEffect, useState, useRef, useMemo } from 'react';
 import { View } from '@tarojs/components';
-import { IconFont } from '../index';
 import './Toast.scss';
 
 function Toast(props) {
@@ -10,6 +9,7 @@ function Toast(props) {
     className,
     style,
     delay = 3000,
+    transitionDuration = 300,
     content,
     children,
     onClose = () => {},
@@ -46,7 +46,13 @@ function Toast(props) {
   }, [type, status, className]);
 
   return (
-    <View className={classNames} style={style}>
+    <View
+      className={classNames}
+      style={{
+        ...style,
+        transitionDuration: `${transitionDuration}ms`,
+      }}
+    >
       {content}
       {children}
     </View>

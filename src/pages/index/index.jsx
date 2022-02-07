@@ -88,6 +88,35 @@ function Index() {
         </TabPane>
       </Tabs>
 
+      <Tabs
+        style={{ height: '20vh' }}
+        scroll={true}
+        destroyInactiveTabPane={false}
+        defaultActiveKey="1"
+        onChange={(value) => {
+          console.log(value);
+        }}
+      >
+        <TabPane tab="1" key="1">
+          <View>1111</View>
+          <View>1111</View>
+          <View>1111</View>
+          <View>1111</View>
+        </TabPane>
+        <TabPane tab="2" key="2">
+          <Textarea
+            label="textarea"
+            required={true}
+            placeholder={'测试form textarea'}
+            maxlength={200}
+            limit={200}
+          />
+        </TabPane>
+        <TabPane tab="3" key="3">
+          3
+        </TabPane>
+      </Tabs>
+
       <View onClick={onClick}>123</View>
       <View
         onClick={() =>

@@ -14,6 +14,7 @@ export const defaultToastInfo = {
   type: 'info',
   content: '',
   delay: 3000,
+  transitionDuration: 300,
   onClose: () => {},
 };
 
