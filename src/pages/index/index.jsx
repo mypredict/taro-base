@@ -13,6 +13,7 @@ import {
   Progress,
   Tabs,
   TabPane,
+  Tag,
 } from '@/components';
 import { useRequest, getMyCreateList } from '@/apis';
 import { useInteract } from '@/store';
@@ -61,6 +62,27 @@ function Index() {
   return (
     <PageContainer header={<View>456</View>} footer={<View>123</View>}>
       <Progress style={{ margin: '40px 0' }} />
+
+      <View style={{ backgroundColor: '#fff' }}>
+        <Tag status="ok" fill={false} style={{ margin: 30 }}>
+          123
+        </Tag>
+        <Tag status="error" fill={false} style={{ margin: 30 }}>
+          123
+        </Tag>
+        <Tag status="fail" fill={false} style={{ margin: 30 }}>
+          123
+        </Tag>
+        <Tag status="ok" style={{ margin: 30 }}>
+          123
+        </Tag>
+        <Tag status="error" style={{ margin: 30 }}>
+          123
+        </Tag>
+        <Tag status="fail" style={{ margin: 30 }}>
+          123
+        </Tag>
+      </View>
 
       <Tabs
         defaultActiveKey="1"

@@ -19,6 +19,7 @@ import Toast from './Toast/Toast';
 import Modal from './Modal/Modal';
 import Loading from './Loading/Loading';
 import Progress from './Progress/Progress';
+import Tag from './Tag/Tag';
 import Form from './Form/Form';
 import FormItem from './Form/FormItem';
 import Input from './Input/Input';
@@ -56,6 +57,7 @@ export {
   Modal,
   Loading,
   Progress,
+  Tag,
   Form,
   FormItem,
   Input,

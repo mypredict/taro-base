@@ -15,7 +15,7 @@ function Tabs(props) {
     className,
     style,
     scroll = false,
-    mutationLen = 40,
+    mutationLen = 50,
     destroyInactiveTabPane = true,
     defaultActiveKey,
     activeKey,

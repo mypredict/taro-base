@@ -1,25 +1,44 @@
 .my-tag {
+  display: inline-block;
   padding: 3px 10px;
-  border-radius: 10px;
-  font-size: 24px;
+  border-radius: 6px;
+  font-size: $FONT_SIZE5;
 
-  &__pendding {
-    color: #11a01d;
-    border: 1px solid #11a01d;
+  &__ok {
+    color: $OK_COLOR;
+    border: 1px solid $OK_COLOR;
   }
 
-  &__end {
-    color: #c9610d;
-    border: 1px solid #c9610d;
+  &__error {
+    color: $ERROR_COLOR;
+    border: 1px solid $ERROR_COLOR;
   }
 
-  &__failure {
-    color: #666;
-    border: 1px solid #666;
+  &__fail {
+    color: $FAIL_COLOR;
+    border: 1px solid $FAIL_COLOR;
   }
 
-  &__delete {
-    color: $FONT_COLOR4;
-    border: 1px solid $FONT_COLOR4;
+  &-fill {
+    &__ok {
+      color: rgba(32, 183, 89, 1);
+      background-color: rgba(32, 183, 89, 0.1);
+      border: none;
+      border-radius: 4px;
+    }
+
+    &__error {
+      color: rgba(245, 108, 108, 1);
+      background-color: rgba(245, 108, 108, 0.1);
+      border: none;
+      border-radius: 4px;
+    }
+
+    &__fail {
+      color: rgba(102, 102, 102, 1);
+      background-color: rgba(102, 102, 102, 0.1);
+      border: none;
+      border-radius: 4px;
+    }
   }
 }
