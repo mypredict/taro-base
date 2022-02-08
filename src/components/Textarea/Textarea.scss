@@ -28,15 +28,16 @@
     .textarea {
       box-sizing: border-box;
       width: 100%;
-      padding-top: 2px;
+      padding-top: 4px;
       line-height: 1.4;
-      font-size: 32px;
+      font-size: 30px;
       text-align: justify;
-      color: #49434d;
+      color: $FONT_COLOR3;
     }
   }
 
   .textarea-placeholder {
+    font-size: 30px;
     color: rgba(0, 0, 0, 0.4);
   }
 

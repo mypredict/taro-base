@@ -13,6 +13,7 @@
 
   .progress-percent {
     height: 100%;
+    transition: width 1s;
 
     &__ok {
       background-color: #70bcfa;

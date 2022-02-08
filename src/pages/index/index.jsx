@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDidShow } from '@tarojs/taro';
 import { View } from '@tarojs/components';
 import {
@@ -59,9 +59,20 @@ function Index() {
     }, 2000);
   }, []);
 
+  const [value, setValue] = useState(0);
+  useEffect(() => {
+    setTimeout(() => {
+      setValue((old) => old + 30);
+    }, 500);
+
+    setTimeout(() => {
+      setValue((old) => old + 60);
+    }, 500);
+  }, []);
+
   return (
     <PageContainer header={<View>456</View>} footer={<View>123</View>}>
-      <Progress style={{ margin: '40px 0' }} />
+      <Progress value={value} style={{ margin: '40px 0' }} />
 
       <View style={{ backgroundColor: '#fff' }}>
         <Tag status="ok" fill={false} style={{ margin: 30 }}>

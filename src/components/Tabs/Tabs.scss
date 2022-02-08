@@ -52,6 +52,11 @@
   flex: 1;
   height: 100%;
 
+  .tabs-header {
+    box-shadow: 0 3px 6px #eee;
+    z-index: 8;
+  }
+
   .tabs-body {
     flex: 1;
     min-height: 0;

@@ -10,7 +10,7 @@ function Progress(props) {
     isHidePercent,
     value = 0,
     maxValue = 100,
-    strokeWidth = 10,
+    strokeWidth = 8,
     color,
   } = props || {};
 
